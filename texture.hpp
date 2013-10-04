@@ -5,15 +5,15 @@
 #include <SDL2/SDL_image.h>
 
 
-namespace SDLPP {
+
+namespace SDLXX {
 
 
 class Texture{
 public:
     SDL_Texture *tex;
-    Texture(SDL_Texture *t){
-        tex = t;
-    }
+    SDL_Surface *surface;
+
     ~Texture(){
         SDL_DestroyTexture(tex);
     }
@@ -25,6 +25,8 @@ public:
     SDL_Texture* get(){
         return tex;
     }
+
+
 
 };
 

@@ -6,9 +6,11 @@
 
 
 #include <string>
+#include <iostream>
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
 #include "texture.hpp"
+#include "window.hpp"
 
 
 namespace SDLPP {
