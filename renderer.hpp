@@ -46,9 +46,9 @@ public:
         SDL_RenderPresent(this->ren);
     }
 
-    SDLXX::Texture loadTexture(const std::string &file){
+//    SDLXX::Texture loadTexture(const std::string &file){
 
-    }
+//    }
 };
 
 }//namepsace

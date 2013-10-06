@@ -11,7 +11,7 @@ namespace SDLXX {
 
 class Texture{
 public:
-    SDL_Texture *tex;
+    SDL_Texture *tex = nullptr;
     SDL_Surface *surface;
 
     ~Texture(){
@@ -24,6 +24,16 @@ public:
 
     SDL_Texture* get(){
         return tex;
+    }
+
+    void queryTexture(int *w, int *h){
+        if(tex!=nullptr)
+            SDL_QueryTexture(this->tex,NULL,NULL,w,h);
+        else{
+            std::cout << "texture query fail texture is nullptr" << std::endl;
+           *w = 0;
+           *h = 0;
+        }
     }
 
 
