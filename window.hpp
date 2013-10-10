@@ -25,7 +25,11 @@ public:
     }
     void setIcon(const std::string &file){
 
-        SDL_SetWindowIcon(this->win, IMG_Load(file.c_str()));
+        auto *icon = IMG_Load(file.c_str());
+
+        SDL_SetWindowIcon(this->win, icon);
+
+        SDL_FreeSurface(icon);
     }
 
 };

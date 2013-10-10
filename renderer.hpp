@@ -33,7 +33,7 @@ public:
     }
     SDLXX::Texture createTexture(const std::string &file){
 
-        SDL_Surface *surface = IMG_Load(file.c_str());
+        auto *surface = IMG_Load(file.c_str());
 
         SDLXX::Texture tex;
         tex = SDL_CreateTextureFromSurface(this->ren, surface);

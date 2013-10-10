@@ -3,6 +3,7 @@
 
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
+#include "Rect.hpp"
 
 
 
@@ -12,7 +13,6 @@ namespace SDLXX {
 class Texture{
 public:
     SDL_Texture *tex = nullptr;
-    SDL_Surface *surface;
 
     ~Texture(){
         SDL_DestroyTexture(tex);
@@ -26,13 +26,13 @@ public:
         return tex;
     }
 
-    void queryTexture(int *w, int *h){
+    void queryTexture(SDLXX::Rect &rect){
         if(tex!=nullptr)
-            SDL_QueryTexture(this->tex,NULL,NULL,w,h);
+            SDL_QueryTexture(this->tex,NULL,NULL,&rect.w,&rect.h);
         else{
             std::cout << "texture query fail texture is nullptr" << std::endl;
-           *w = 0;
-           *h = 0;
+           rect.w = 0;
+           rect.h = 0;
         }
     }
 
