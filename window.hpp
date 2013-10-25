@@ -1,8 +1,9 @@
 #ifndef WINDOW_H
 #define WINDOW_H
 
+//#include <SDL.h>
 #include <SDL2/SDL.h>
-#include <SDL2/SDL_image.h>
+
 
 #include <string>
 
@@ -25,7 +26,7 @@ public:
     }
     void setIcon(const std::string &file){
 
-        auto *icon = IMG_Load(file.c_str());
+        auto *icon = SDL_LoadBMP(file.c_str());
 
         SDL_SetWindowIcon(this->win, icon);
 

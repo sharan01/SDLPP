@@ -1,14 +1,15 @@
 #ifndef MAIN_H
 #define MAIN_H
 
+//#include "SDL.h"
 
+#include <SDL2/SDL.h>
 
 
 
 #include <string>
 #include <iostream>
-#include <SDL2/SDL.h>
-#include <SDL2/SDL_image.h>
+
 #include "texture.hpp"
 #include "window.hpp"
 

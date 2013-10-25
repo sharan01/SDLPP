@@ -1,6 +1,11 @@
 #ifndef RENDERER_HPP
 #define RENDERER_HPP
+
+
+//#include <SDL.h>
+//#include <SDL_image.h>
 #include <SDL2/SDL.h>
+#include <SDL2/SDL_image.h>
 #include "window.hpp"
 #include "texture.hpp"
 
@@ -13,9 +18,7 @@ public:
 
     Renderer(SDLXX::Window &window,int index, Uint32 flags){
         ren = SDL_CreateRenderer(window.get(),index,flags);
-        if(ren==nullptr){
-            std::cout << "render null" << std::endl;
-        }
+
     }
     ~Renderer(){
         SDL_DestroyRenderer(ren);
@@ -31,8 +34,19 @@ public:
         SDL_RenderCopy(this->ren,tex.get(),src,dst);
 
     }
+    void copyRotate(SDLXX::Texture &tex,
+                    const SDL_Rect* srcrect,
+                    const SDL_Rect* dstrect,
+                    const double angle,
+                    const SDL_Point *center,
+                    const SDL_RendererFlip flip ){
+
+        SDL_RenderCopyEx(this->ren,tex.get(),srcrect,dstrect,angle,center,flip);
+    }
+
     SDLXX::Texture createTexture(const std::string &file){
 
+        //auto *surface =   SDL_LoadBMP(file.c_str());
         auto *surface = IMG_Load(file.c_str());
 
         SDLXX::Texture tex;

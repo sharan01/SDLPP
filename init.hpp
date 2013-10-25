@@ -1,7 +1,9 @@
 #ifndef INIT_HPP
 #define INIT_HPP
 
+//#include "SDL.h"
 #include <SDL2/SDL.h>
+
 namespace SDLXX
 {
 

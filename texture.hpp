@@ -1,8 +1,8 @@
 #ifndef TEXTURE_H
 #define TEXTURE_H
 
+//#include <SDL.h>
 #include <SDL2/SDL.h>
-#include <SDL2/SDL_image.h>
 #include "Rect.hpp"
 
 
@@ -30,7 +30,6 @@ public:
         if(tex!=nullptr)
             SDL_QueryTexture(this->tex,NULL,NULL,&rect.w,&rect.h);
         else{
-            std::cout << "texture query fail texture is nullptr" << std::endl;
            rect.w = 0;
            rect.h = 0;
         }
